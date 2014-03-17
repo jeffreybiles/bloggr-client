@@ -7,10 +7,14 @@ App = Ember.Application.create({});
 App.ApplicationAdapter = DS.FixtureAdapter.extend({})
 
 App.Post = DS.Model.extend({
-  title: DS.attr(),
-  author: DS.attr(),
-  date: DS.attr(),
-  body: DS.attr()
+  // defineProperty(context, propertyName, value)
+  attributes: ['title', 'author', 'date', 'body'],
+  defineAttributes: function(){
+    var model = this;
+    this.get('attributes').forEach(function(attribute){
+      Ember.defineProperty(model, attribute, DS.attr())
+    })
+  }.on('init')
 })
 
 App.Post.FIXTURES = [{
