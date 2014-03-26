@@ -32,7 +32,7 @@
               <tr><th>Recent Posts</th></tr>
             </thead>
             {{#each model}}
-            <tr><td>
+            <tr class="post-link"><td>
                 {{#link-to 'post' this}}{{title}} <small class='muted'>by {{author}}</small>{{/link-to}}
             </td></tr>
             {{/each}}
