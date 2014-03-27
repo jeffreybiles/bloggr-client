@@ -62,6 +62,11 @@
 
     <hr>
 
+    {{#if videoUrl}}
+      <div class='video'>
+        <iframe width="853" height="480" {{bind-attr src=deckedOutVideoUrl}} frameborder="0" allowfullscreen></iframe>
+      </div>
+    {{/if}}
     <div class='below-the-fold'>
       {{format-markdown body}}
     </div>
@@ -69,6 +74,7 @@
 
   <script type="text/x-handlebars" id="post/_edit">
     <p>{{input type="text" value=title}}</p>
+    <p>{{input type="text" value=videoUrl}}
     <p>{{textarea value=body}}</p>
   </script>
 
